@@ -5,6 +5,8 @@ import Dashboard from "./dashboard/Dashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Public from "./Route/Public";
+import Home from "./dashboard/Home";
+import About from "./pages/About";
 
 const App = () => {
    
@@ -14,10 +16,13 @@ const App = () => {
                 <Routes>
                     <Route element={<Protected />}>
                         <Route path="/" element={<Dashboard />}></Route>
+                        <Route path="/about" element={<About />}></Route>
+                        <Route path="/home" element={<Home />}></Route>
                     </Route>
                     <Route element={<Public />}>
                         <Route path="/login" element={<Login />}></Route>
                     </Route>                         
+                        <Route path='*' exact={true} element={<h2>Page Not Found</h2>}></Route>
                 </Routes>
             </BrowserRouter>
         </>
